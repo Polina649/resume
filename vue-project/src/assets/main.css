@@ -1,0 +1,325 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* Убираем прокрутку */
+  font-family: 'Roboto', sans-serif;
+  /* background: #f8f4f1; */
+  background: #fff;
+}
+
+header {
+  background: #633;
+  height: 80px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.text_h3 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.content_flex_text_h3 {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.burger-button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.burger-button .line {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+main {
+  margin-top: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px);
+}
+
+.forms_containers {
+  background: #f8f4f1;
+  border: 2px solid #c89569;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.header_form_main {
+  background: #c89569;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group_2{
+  position: relative;
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #c89569;
+  outline: none;
+  transition: border-color 0.3s;
+  background: transparent;
+  z-index: 1;
+}
+
+input:focus,
+textarea:focus {
+  border-bottom-color: #633;
+}
+
+textarea {
+  resize: none;
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #c89569;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+input:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+  top: -5px;
+  font-size: 16px;
+  color: #633;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #633;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ee5238;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Удаление переключаеля по умолчанию */
+.vue-devtools__anchor {
+  display: none;
+}
+
+/* Адаптация формы по высоте */
+/* Основной стиль для формы */
+.form {
+  display: flex;
+  flex-direction: column; /* По умолчанию — вертикальное расположение */
+  gap: 15px;
+  margin-top: 50px;
+}
+
+/* При уменьшении высоты экрана */
+@media (max-height: 1000px) {
+  .form {
+    /* flex-direction: row;  */
+    flex-wrap: wrap; /* Позволяем элементам переноситься на новую строку */
+    gap: 10px; /* Уменьшаем промежуток между элементами */
+    justify-content: space-between; /* Равномерное распределение элементов */
+  }
+
+  .form-group {
+    /* flex: 1 1 calc(50% - 60px);  */
+    min-width: 220px; /* Минимальная ширина поля */
+  }
+
+  .form-group_2 {
+    /* flex: 1 1 calc(50% - 60px); */
+    min-width: 220px;/* Минимальная ширина поля */
+  }
+
+  input,
+  textarea {
+    width: 100%; /* Поля растягиваются на всю ширину контейнера */
+  }
+}
+
+/* При очень маленькой высоте экрана */
+@media (max-height: 1000px) {
+  .form {
+    gap: 5px; /* Еще больше уменьшаем промежутки */
+  }
+
+  .form-group {
+    /* flex: 1 1 calc(50% - 4px); */
+  }
+
+  input,
+  textarea {
+    font-size: 14px;
+  }
+}
+
+.required {
+  color: red;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+/* Стиль для input */
+
+/* Стили для формы */
+.form-group {
+  margin-top: 20px;
+  /* text-align: center; */
+}
+
+.form-group_2 {
+  /* margin-top: 20px; */
+  text-align: center;
+}
+
+/* Стили для кастомной кнопки */
+.custom-file-button {
+    background-color: #fff;
+    color: #633;
+    border: 2px dashed #633;
+    /* border: none; */
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.custom-file-button:hover {
+  background-color: #c89569;
+}
+
+.custom-file-button:active {
+  transform: scale(0.95);
+}
+
+.custom-file-button span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.content_form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  color: #663333;
+  padding: 10px;
+  border: 2px solid #c89569;
+  font-size: 16px;
+  width: 220px;
+  line-height: 1.5; /* Увеличиваем высоту строки */
+  height: auto; /* Высота будет динамической */
+  overflow-wrap: anywhere; /* Позволяем переносу текста */
+  white-space: normal; /* Делаем текст многострочным */
+}
+
+option {
+  white-space: pre-wrap; /* Перенос текста */
+  overflow-wrap: anywhere; /* Перенос длинных слов */
+  padding: 5px;
+}
+
+select:focus {
+  border: 2px solid #663333;
+}
+
+.custom-tooltip {
+  position: relative;
+}
+
+.custom-tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  background: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  transform: translateY(5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1000;
+}
